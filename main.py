@@ -1,57 +1,49 @@
 import pandas as pd
 from FoodItemClass import FoodItem
 from orderClass import Order
-def newOrderIndexes(df):
-  firstRow = True
-  listIndexes = []
-  orderList = []
-  for index, row in df.iterrows():
-    if (index > 400):
-        break
-    if (firstRow):
-      prev = row[0]
-      date = row[1]
-      listIndexes += [index]
-      a = Order(date)
-      orderList += [a]
-      firstRow = False
-    else:
-      current = row[0]
-      if (prev != current):
-        prev = current
-        date = row[1]
-        listIndexes += [index]
-        a = Order(date)
-        orderList += [a]
-  return orderList, listIndexes
 
 # Read in the file, order number can be added after being sorted
 # if reading in 
-def getFoodIndexes(combined_df):
+def getFoodAndOrderIndexes(combined_df):
     indexes = []
     indexes.append(0)
-
+    firstRow = True
+    listIndexes = []
+    orderList = []
     for index, row in combined_df.iterrows():
+        if (firstRow):
+            prev = row["Order #"]
+            date = row["Sent Date"]
+            listIndexes += [index]
+            a = Order(date)
+            orderList += [a]
+            firstRow = False
+        else:
+            current = row["Order #"]
+            if (prev != current):
+                prev = current
+                date = row["Sent Date"]
+                listIndexes += [index]
+                a = Order(date)
+                orderList += [a]
         # case for mac and cheese
-        if (index > 400):
-            break
         # if either the next row has noodles or isn't mac and cheese append that index
         if (index == (len(combined_df) - 2) ):
             break
-        if row[4] == "Mac and Cheese":
-            if (row[4] != combined_df.iloc[index + 1][4]) or (combined_df.iloc[index+1][3] == "Noods"):
+        if row["Parent Menu Selection"] == "Mac and Cheese":
+            if (row["Parent Menu Selection"] != combined_df.iloc[index + 1]["Parent Menu Selection"]) or (combined_df.iloc[index+1]["Option Group Name"] == "Noods"):
                 indexes.append(index + 1)
-        if row[4] == "Grilled Cheese Sandwich":
-            if (row[4] != combined_df.iloc[index+1][4]) or (combined_df.iloc[index+1][3] == "Choose Your Meats"):
+        if row["Parent Menu Selection"] == "Grilled Cheese Sandwich":
+            if (row["Parent Menu Selection"] != combined_df.iloc[index+1]["Parent Menu Selection"]) or (combined_df.iloc[index+1]["Option Group Name"] == "Choose Your Meats"):
                 indexes.append(index + 1)
-        if row[4] == "Sides/Desserts":
+        if row["Parent Menu Selection"] == "Sides/Desserts":
             indexes.append(index + 1)
-        if row[4] == "Drinks":
+        if row["Parent Menu Selection"] == "Drinks":
             indexes.append(index+1)
-        if row[4] == "Mac and Cheese Party Tray (Plus FREE Garlic Bread)":
+        if row["Parent Menu Selection"] == "Mac and Cheese Party Tray (Plus FREE Garlic Bread)":
             indexes.append(index+1)
     indexes += [len(combined_df) - 1]
-    return indexes
+    return indexes, orderList, listIndexes
 
 # Various statistical tests
 combined_df = pd.read_csv("combined_sheets_with_june.csv")
@@ -61,8 +53,7 @@ combined_df = pd.read_csv("combined_sheets_with_june.csv")
 #     currentOrder_df = combined_df.iloc(index)
     
 #     addOrder(orderslist, currentOrder_df)
-foodsIndex = getFoodIndexes(combined_df)
-orderList, listIndexes = newOrderIndexes(combined_df)
+foodsIndex, orderList, listIndexes = getFoodAndOrderIndexes(combined_df)
 foods = []
 firstRow = True
 a = FoodItem("")
@@ -75,23 +66,20 @@ for index, row in combined_df.iterrows():
     # when it reaches listIndexes[1] increment to listIndexes[2] and start orderList[1]
     # need to iterate for individual food items until index = foodsIndex[1] then increment to foodsIndex[2]
     # only create a new food item when index == foodsIndex[n]
-    if (index > 400):
-        break
     
     if ((index == 0 or index == foodsIndex[n]) and n != len(foodsIndex) - 1):
         if (index != 0):
-            print(s, index, listIndexes[l], a.output())
             orderList[s].addFoodItems(a)
-            a = FoodItem(row[4])
+            a = FoodItem(row["Parent Menu Selection"])
         if (index == 0):
-            a = FoodItem(row[4])
+            a = FoodItem(row["Parent Menu Selection"])
         if (index == foodsIndex[n]):
             n += 1
-    a.addModifierGroup(row[3])
-    a.addModifiers(row[2])
+    a.addModifierGroup(row["Option Group Name"])
+    a.addModifiers(row["Modifier"])
     if (index == listIndexes[l] and l != len(listIndexes)-1):            
         l += 1
         s +=1
 
-
+print(len(orderList))
 
