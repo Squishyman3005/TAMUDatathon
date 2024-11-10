@@ -22,12 +22,26 @@ class Order :
         continue
       combinationCount += 1
     return combinationCount
-  def totalToppings(foodType):
-    #Find Sum
-    sum = 0
+  def lame():
+    print("jfdjf")
+  def findCombinationWithFood(self, Items, name):
+    """
+    Items: list of items
+    Checks if all items are in modifiers 
+    """
+    combinationCount = 0
     for foodItem in self.foodItems:
-      if (foodItem.name() == foodType):
-        sum += foodItem.
+      if (foodItem.name != name):
+        continue
+      notFound = False
+      for Item in Items:
+        if Item not in foodItem.modifiers.keys():
+          notFound = True
+          break
+      if notFound:
+        continue
+      combinationCount += 1
+    return combinationCount
    
 
 a = FoodItem("Mac And Cheese")
