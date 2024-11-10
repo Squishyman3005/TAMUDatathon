@@ -15,6 +15,7 @@ To access the dashboard, simply use the provided link to the dashboard in "----"
 _Instructions for use_ <br>
 No installation necessary. 
 For the pie chart in the dashboard, you may select the amount of toppings in a topping combination, with a maximum of 5 toppings in a combination. 
+This dashboard contains an analysis of every order at the restaurant since opening day. It contains a distribution for the toppings ordered, as well as the most popular combinations of toppings on a food item. Data on the most ordered sides is also represented. Furthermore, we identified a trend in the number of orders based on the time of day, thereby identifying peak hours.
 
 ## Contributors
 [Squishyman3005](https://github.com/Squishyman3005) <br>
