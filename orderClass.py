@@ -6,4 +6,32 @@ class Order :
     self.foodItems = []
   def addFoodItems(self, foodItem):
     self.foodItems += [foodItem]
+  def findCombination(self, Items):
+    """
+    Items: list of items
+    Checks if all items are in modifiers 
+    """
+    combinationCount = 0
+    for foodItem in self.foodItems:
+      notFound = False
+      for Item in Items:
+        if Item not in foodItem.modifiers.keys():
+          notFound = True
+          break
+      if notFound:
+        continue
+      combinationCount += 1
+    return combinationCount
  
+
+a = FoodItem("Mac And Cheese")
+a.addModifiers("parmesian")
+a.addModifiers("chicken")
+a.addModifiers("fortnite")
+
+A = Order("8-30-2024")
+A.addFoodItems(a)
+
+combo = 0
+combo = A.findCombination(["parmesian", "Goku", "chicken"])
+print(combo)
