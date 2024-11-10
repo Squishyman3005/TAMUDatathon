@@ -1,8 +1,9 @@
+from FoodItemClass import FoodItem
+
 class Order :
-  def __inti__(self, date, orderID): 
+  def __init__(self, date): 
     self.date = date
-    self.orderID = orderID
     self.foodItems = []
   def addFoodItems(self, foodItem):
     self.foodItems += [foodItem]
-  
+ 
