@@ -1,0 +1,31 @@
+N-Toppings,Toppings,Num Orders
+1.0,"Parmesan, Breadcrumbs",8947.0
+1.0,"Parmesan, Grilled Chicken",4320.0
+1.0,"Parmesan, Brisket",4253.0
+1.0,"Breadcrumbs, Brisket",4225.0
+1.0,"Parmesan, Onions",3915.0
+1.0,Other,106047.0
+2.0,"Parmesan, Breadcrumbs",8947.0
+2.0,"Parmesan, Grilled Chicken",4320.0
+2.0,"Parmesan, Brisket",4253.0
+2.0,"Breadcrumbs, Brisket",4225.0
+2.0,"Parmesan, Onions",3915.0
+2.0,Other,106047.0
+3.0,"Parmesan, Breadcrumbs, Brisket",2945.0
+3.0,"Parmesan, Breadcrumbs, Onions",2732.0
+3.0,"Parmesan, Breadcrumbs, Grilled Chicken",2717.0
+3.0,"Parmesan, Breadcrumbs, Bacon",2213.0
+3.0,"Parmesan, Breadcrumbs, Corn",2099.0
+3.0,Other,135879.0
+4.0,"Parmesan, Breadcrumbs, Onions, Bell Peppers",1120.0
+4.0,"Parmesan, Breadcrumbs, Onions, Jalapenos",1078.0
+4.0,"Parmesan, Breadcrumbs, Onions, Corn",1050.0
+4.0,"Parmesan, Breadcrumbs, Onions, Mushrooms",1029.0
+4.0,"Parmesan, Breadcrumbs, Brisket, Onions",940.0
+4.0,Other,120612.0
+5.0,"Parmesan, Breadcrumbs, Onions, Jalapenos, Bell Peppers",565.0
+5.0,"Parmesan, Breadcrumbs, Onions, Corn, Bell Peppers",529.0
+5.0,"Parmesan, Breadcrumbs, Onions, Mushrooms, Bell Peppers",509.0
+5.0,"Parmesan, Breadcrumbs, Onions, Bell Peppers, Tomatoes",489.0
+5.0,"Parmesan, Breadcrumbs, Onions, Corn, Jalapenos",478.0
+5.0,Other,80046.0
