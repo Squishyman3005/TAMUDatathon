@@ -22,7 +22,13 @@ class Order :
         continue
       combinationCount += 1
     return combinationCount
- 
+  def totalToppings(foodType):
+    #Find Sum
+    sum = 0
+    for foodItem in self.foodItems:
+      if (foodItem.name() == foodType):
+        sum += foodItem.
+   
 
 a = FoodItem("Mac And Cheese")
 a.addModifiers("parmesian")
