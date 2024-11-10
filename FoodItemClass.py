@@ -15,7 +15,7 @@ class FoodItem:
         # Takes a modifiergroups and modifiergroup
         # If modifiergroup not in modifiergroups, initialize it
         if (modifiergroup not in self.modifiergroups.keys()):
-            self.modifiergroups[modifiergroup] =1
+            self.modifiergroups[modifiergroup] = 1
         else: # increment the frequency of modifier group
             self.modifiergroups[modifiergroup] += 1
     def output(self):
