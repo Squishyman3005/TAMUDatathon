@@ -9,7 +9,9 @@ This is a tableau dashboard created using data sorted in Python incorporating th
 
 
 ## Installation
-To access the dashboard, simply use the provided link to the dashboard in "----". Source can be viewed but data has already been processed.
+To access the dashboard, simply use the provided link:
+https://public.tableau.com/app/profile/robert.jordan4047/viz/RonisSample/Dashboard3
+Source can be viewed but data has already been processed.
 
 ## Usage
 _Instructions for use_ <br>
